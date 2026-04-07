@@ -1,101 +1,181 @@
-import Image from "next/image";
+import Link from "next/link";
+import { LinkButton } from "@/components/LinkButton";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="space-y-12">
+      <section className="dvy-card overflow-hidden p-6 sm:p-10">
+        <div className="space-y-6">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-6xl">
+            Designing connected hardware and software—beautifully.
+          </h1>
+          <p className="max-w-2xl text-pretty text-base text-muted sm:text-lg">
+            Chris Davey is a Product (UX/UI), Industrial, and Branding designer.
+            With leadership experience—shipping dozens of connected hardware and
+            software products across medical and consumer SaaS, from high‑fidelity
+            prototyping through production.
+          </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <LinkButton href="/product" variant="primary">
+              Explore featured work
+            </LinkButton>
+            <LinkButton href="/industrial" variant="secondary">
+              Industrial work
+            </LinkButton>
+            <LinkButton href="/about" variant="secondary">
+              About + Contact
+            </LinkButton>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <DisciplineCard
+            icon={<IconSpark />}
+            title="Product (UX/UI)"
+            subtitle="Systems, flows, interaction polish"
+            href="/product"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <DisciplineCard
+            icon={<IconCube />}
+            title="Industrial Design"
+            subtitle="Form, function, manufacturability"
+            href="/industrial"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <DisciplineCard
+            icon={<IconMark />}
+            title="Branding / Graphic"
+            subtitle="Identity, typography, story"
+            href="/branding"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-2">
+        <div className="dvy-card p-6 sm:p-8">
+          <h2 className="text-xl font-semibold text-fg">Approach</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+            Clarity first. I reduce cognitive load, design for real constraints
+            (engineering, manufacturing, timelines), and iterate quickly with
+            high‑fidelity prototypes.
+          </p>
+        </div>
+        <div className="dvy-card p-6 sm:p-8">
+          <h2 className="text-xl font-semibold text-fg">Available for</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+            End-to-end product design across hardware + software, UX/UI for
+            connected devices, and production-ready industrial design.
+          </p>
+        </div>
+      </section>
     </div>
+  );
+}
+
+function DisciplineCard({
+  icon,
+  title,
+  subtitle,
+  href,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group rounded-dvy border border-white/10 bg-white/[0.03] p-5 transition hover:bg-white/[0.06]"
+    >
+      <div className="flex items-start gap-3">
+        <div className="dvy-icon3d mt-0.5 text-fg/90">{icon}</div>
+        <div>
+          <div className="text-base font-semibold text-fg">{title}</div>
+          <div className="mt-1 text-sm text-muted">{subtitle}</div>
+        </div>
+      </div>
+      <div className="mt-4 text-sm text-fg/90">
+        Explore <span className="transition group-hover:translate-x-0.5">→</span>
+      </div>
+    </Link>
+  );
+}
+
+function IconCube() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 2.75 20.5 7.75v8.5L12 21.25 3.5 16.25v-8.5L12 2.75Z"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 21.25v-9.5M20.5 7.75 12 11.75 3.5 7.75"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconSpark() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 2.5 14.3 9.7 21.5 12l-7.2 2.3L12 21.5l-2.3-7.2L2.5 12l7.2-2.3L12 2.5Z"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18.2 5.8l.6 1.9 1.9.6-1.9.6-.6 1.9-.6-1.9-1.9-.6 1.9-.6.6-1.9Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconMark() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M7 7.5h10M7 12h7M7 16.5h10"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+      />
+      <path
+        d="M5.25 4.75h13.5c.83 0 1.5.67 1.5 1.5v11.5c0 .83-.67 1.5-1.5 1.5H5.25c-.83 0-1.5-.67-1.5-1.5V6.25c0-.83.67-1.5 1.5-1.5Z"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
