@@ -13,10 +13,10 @@ export function SiteFooter() {
 
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
             <Link href="/product" className="text-fg/85 hover:text-fg">
-              Product (UX/UI)
+              UX/UI
             </Link>
             <Link href="/industrial" className="text-fg/85 hover:text-fg">
-              Industrial
+              Products
             </Link>
             <Link href="/branding" className="text-fg/85 hover:text-fg">
               Branding

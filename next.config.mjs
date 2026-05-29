@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Avoid stale webpack chunk maps in dev (e.g. missing ./948.js) when .next gets out of sync.
+  // Human-readable chunk names in dev only. Do not replace `config.optimization`
+  // with a new object — that drops Webpack/Next internals and can trigger dev errors
+  // like `TypeError: __webpack_modules__[moduleId] is not a function`.
   webpack: (config, { dev }) => {
-    if (dev) {
-      config.cache = false;
+    if (dev && config.optimization) {
+      config.optimization.moduleIds = "named";
+      config.optimization.chunkIds = "named";
     }
     return config;
   },

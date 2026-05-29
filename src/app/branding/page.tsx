@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { GalleryLightboxTile } from "@/components/GalleryLightboxTile";
 
 export const metadata: Metadata = {
   title: "Branding / Graphic Design",
@@ -46,31 +47,57 @@ export default function BrandingPage() {
           Add brand project tiles here—each can open a detail page later if you
           want deeper storytelling.
         </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]">
-            <Image
-              src="/assets/shannon_automotive.png"
-              alt="Shannon Automotive brand work"
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">
+          <GalleryLightboxTile
+            src="/assets/shannon_automotive.png"
+            alt="Shannon Automotive brand work"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            imageClassName="object-cover"
+            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+          />
+          <Link
+            href="/case-studies/fort-rock-brewing"
+            className="group relative block aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03] transition hover:border-white/20 hover:bg-white/[0.05]"
+          >
             <Image
               src="/assets/Fort_Rock_Cans_on_blue.png"
               alt="Fort Rock Brewing cans on blue"
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover object-center scale-[1.35]"
+              sizes="(max-width: 640px) 100vw, 50vw"
+              className="object-cover object-center transition duration-300 group-hover:scale-[1.03]"
             />
-          </div>
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div
-              key={`placeholder-${i}`}
-              className="aspect-[4/3] rounded-dvy border border-white/10 bg-white/[0.03]"
-            />
-          ))}
+            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-3 text-sm font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">
+              Fort Rock Brewing — case study
+            </span>
+          </Link>
+          <GalleryLightboxTile
+            src="/assets/kalabbr.png"
+            alt="Kalabbr brand work"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            imageClassName="object-cover"
+            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+          />
+          <GalleryLightboxTile
+            src="/assets/bekonix.png"
+            alt="Bekonix brand work"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            imageClassName="object-cover object-center"
+            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+          />
+          <GalleryLightboxTile
+            src="/assets/NexePackaging.png"
+            alt="NEXE packaging brand work"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            imageClassName="object-cover"
+            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+          />
+          <GalleryLightboxTile
+            src="/assets/EsplanadeWine.png"
+            alt="Esplanade Wine brand work"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            imageClassName="object-cover"
+            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+          />
         </div>
       </section>
 

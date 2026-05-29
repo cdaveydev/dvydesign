@@ -10,7 +10,7 @@ export default function Home() {
             Designing connected hardware and software—beautifully.
           </h1>
           <p className="max-w-2xl text-pretty text-base text-muted sm:text-lg">
-            Chris Davey is a Product (UX/UI), Industrial, and Branding designer.
+            Chris Davey is a UX/UI, Products, and Branding designer.
             With leadership experience—shipping dozens of connected hardware and
             software products across medical and consumer SaaS, from high‑fidelity
             prototyping through production.
@@ -21,7 +21,7 @@ export default function Home() {
               Explore featured work
             </LinkButton>
             <LinkButton href="/industrial" variant="secondary">
-              Industrial work
+              Products work
             </LinkButton>
             <LinkButton href="/about" variant="secondary">
               About + Contact
@@ -32,13 +32,13 @@ export default function Home() {
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           <DisciplineCard
             icon={<IconSpark />}
-            title="Product (UX/UI)"
+            title="UX/UI"
             subtitle="Systems, flows, interaction polish"
             href="/product"
           />
           <DisciplineCard
             icon={<IconCube />}
-            title="Industrial Design"
+            title="Products"
             subtitle="Form, function, manufacturability"
             href="/industrial"
           />

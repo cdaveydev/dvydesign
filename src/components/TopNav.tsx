@@ -7,8 +7,8 @@ import { LinkButton } from "@/components/LinkButton";
 import { usePathname } from "next/navigation";
 
 const nav = [
-  { href: "/product", label: "Product (UX/UI)" },
-  { href: "/industrial", label: "Industrial" },
+  { href: "/product", label: "UX/UI" },
+  { href: "/industrial", label: "Products" },
   { href: "/branding", label: "Branding" },
   { href: "/about", label: "About" },
 ] as const;

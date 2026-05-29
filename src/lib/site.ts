@@ -1,11 +1,11 @@
 export const SITE = {
   name: "DVYDesign",
-  tagline: "Product (UX/UI) • Industrial • Branding",
+  tagline: "UX/UI • Products • Branding",
   description:
-    "Chris Davey — Product (UX/UI), Industrial & Branding. Connected hardware, SaaS, and medical products—from prototyping through production.",
+    "Chris Davey — UX/UI, Products & Branding. Connected hardware, SaaS, and medical products—from prototyping through production.",
   person: {
     name: "Chris Davey",
-    title: "Product (UX/UI), Industrial & Branding Designer",
+    title: "UX/UI, Products & Branding Designer",
     location: "Sacramento, CA",
   },
   links: {

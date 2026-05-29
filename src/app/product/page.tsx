@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Product (UX/UI)",
+  title: "UX/UI",
 };
 
 export default function ProductPage() {
@@ -48,14 +48,18 @@ export default function ProductPage() {
         </p>
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
           <CaseStudyCard
-            title="Case Study Title"
-            body="What you built, for whom, and the impact (conversion, retention, speed, NPS)."
+            title="HiDO Health"
+            body="Mobile apps and web-based dashboards for cognitive care patients."
             imageSrc="/assets/hido_health.png"
             imageAlt="HiDO Health product UX/UI"
+            href="/case-studies/hido-health"
           />
           <CaseStudyCard
-            title="Case Study Title"
-            body="System/feature redesign, platform expansion, or end-to-end MVP."
+            title="Bekonix, Inc."
+            body="SaaS platform for creating smart-connected products."
+            imageSrc="/assets/BekonixMonitor.jpg"
+            imageAlt="Bekonix monitor UX/UI"
+            href="/case-studies/bekonix"
           />
         </div>
       </section>
@@ -65,7 +69,7 @@ export default function ProductPage() {
           href="/industrial"
           className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-fg/90 hover:bg-white/8"
         >
-          Next: Industrial →
+          Next: Products →
         </Link>
       </div>
     </div>
@@ -86,13 +90,15 @@ function CaseStudyCard({
   body,
   imageSrc,
   imageAlt,
+  href,
 }: {
   title: string;
   body: string;
   imageSrc?: string;
   imageAlt?: string;
+  href?: string;
 }) {
-  return (
+  const card = (
     <div className="rounded-dvy border border-white/10 bg-white/[0.03] p-6">
       <div className="text-base font-semibold text-fg">{title}</div>
       <div className="mt-2 text-sm leading-relaxed text-muted">{body}</div>
@@ -108,6 +114,17 @@ function CaseStudyCard({
         ) : null}
       </div>
     </div>
+  );
+
+  if (!href) return card;
+
+  return (
+    <Link
+      href={href}
+      className="block rounded-dvy transition hover:-translate-y-0.5 hover:bg-white/[0.02]"
+    >
+      {card}
+    </Link>
   );
 }
 

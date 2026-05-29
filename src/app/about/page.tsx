@@ -18,7 +18,7 @@ export default function AboutPage() {
           Chris Davey
         </h1>
         <p className="max-w-2xl text-muted sm:text-lg">
-          Product (UX/UI), Industrial, and Branding—connected hardware, software
+          UX/UI, Products, and Branding—connected hardware, software
           platforms, and medical products from concept to production.
         </p>
       </header>
@@ -37,7 +37,7 @@ export default function AboutPage() {
             </div>
             <div>
               <span className="text-fg/90">Focus:</span>{" "}
-              Product (UX/UI), Industrial, Branding
+              UX/UI, Products, Branding
             </div>
           </div>
         </div>
