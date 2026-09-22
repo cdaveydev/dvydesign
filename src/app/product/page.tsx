@@ -21,21 +21,6 @@ export default function ProductPage() {
         </p>
       </header>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        <Feature
-          title="UX clarity"
-          body="User flows & information architecture; wireframes & interactive prototypes."
-        />
-        <Feature
-          title="UI craft"
-          body="Responsive web & application design—thoughtful layouts and interaction across breakpoints."
-        />
-        <Feature
-          title="System thinking"
-          body="UI design systems & components; design–engineering handoff."
-        />
-      </section>
-
       <section className="dvy-card p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-fg">Case studies</h2>
         <p className="mt-3 text-sm text-muted sm:text-base">
@@ -65,6 +50,21 @@ export default function ProductPage() {
             href="/case-studies/woomph"
           />
         </div>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        <Feature
+          title="UX clarity"
+          body="User flows & information architecture; wireframes & interactive prototypes."
+        />
+        <Feature
+          title="UI craft"
+          body="Responsive web & application design—thoughtful layouts and interaction across breakpoints."
+        />
+        <Feature
+          title="System thinking"
+          body="UI design systems & components; design–engineering handoff."
+        />
       </section>
 
       <div className="flex flex-wrap gap-3">
