@@ -1,6 +1,7 @@
 export type CaseStudySlug =
   | "hido-health"
   | "bekonix"
+  | "woomph"
   | "fort-rock-brewing";
 
 export type CaseStudySection =
@@ -334,6 +335,154 @@ export const CASE_STUDIES: Record<CaseStudySlug, CaseStudy> = {
           "Figma",
           "Sketch / UXPin (as needed)",
           "Design handoff + collaboration (Slack, Jira)",
+        ],
+      },
+    ],
+  },
+  woomph: {
+    slug: "woomph",
+    title: "Woomph",
+    summary:
+      "Mobile app that enables users to order replacement propane tanks, or purchase new ones. Tanks are delivered and picked up at the user’s location.",
+    heroImage: {
+      src: "/assets/woomph-cover.png",
+      alt: "Woomph use-flow study with overlapping iPhone screens from the propane exchange app.",
+      width: 1920,
+      height: 1433,
+    },
+    overview: {
+      platforms: "iOS app + marketing site",
+    },
+    sections: [
+      {
+        kind: "text",
+        title: "Overview",
+        body: "Woomph takes the pain out of propane exchange. Instead of loading a tank into the car and waiting in line, users order a replacement or a new tank from their phone. Delivery and pickup happen at their location, with the app handling cart, account, and payment.",
+      },
+      {
+        kind: "bullets",
+        title: "Main Tasks",
+        items: [
+          "Rapid, low-fidelity mock-ups guiding a user through replacing or purchasing a propane tank.",
+          "In-flow upsells such as “Need an Extra Tank?”",
+          "Camera integration so the user can photograph the tank’s location for pickup.",
+          "Account creation, address verification, and payment with credit card, Apple Pay, or PayPal.",
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "Accomplishments",
+        items: [
+          "Wireframed and usability-tested the full exchange and purchase journey.",
+          "Conducted user interviews to shape pickup, delivery, and account flows.",
+          "Designed the mobile interface, brand identity, and marketing website.",
+          "Built a design system for the app and prepared store submissions.",
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "Tools Used",
+        items: [
+          "Adobe Illustrator",
+          "Adobe XD, Figma",
+          "Webflow, Outseta",
+        ],
+      },
+      {
+        kind: "figma-prototype",
+        title: "Interactive prototype",
+        description:
+          "Tap through the Adobe XD prototype to walk the exchange, purchase, and payment flows.",
+        embedUrl:
+          "https://xd.adobe.com/embed/d8e2a87f-b1f8-46d5-5b38-a6b16a0f569e-aed3/?fullscreen",
+        width: 360,
+        height: 812,
+        frameHeight: 640,
+      },
+      {
+        kind: "gallery",
+        title: "User flow",
+        description:
+          "The end-to-end map covering tank selection, delivery, pickup photography, and checkout.",
+        gridClass: "mt-6 grid grid-cols-1 gap-3",
+        tileClass:
+          "relative aspect-[3840/2501] w-full overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        imageSizes: "(max-width: 1024px) 100vw, min(80vw, 1152px)",
+        images: [
+          {
+            src: "/assets/woomph-flow.png",
+            alt: "Woomph user-flow diagram mapping tank exchange, purchase, delivery, and payment.",
+          },
+        ],
+      },
+      {
+        kind: "gallery",
+        title: "App screens",
+        description:
+          "Key frames from the mobile experience, from first choice through pickup and payment.",
+        gridClass: "mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3",
+        tileClass:
+          "relative mx-auto aspect-[1242/2688] w-full max-w-[min(100%,280px)] overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        imageSizes: "(max-width: 640px) 50vw, 33vw",
+        images: [
+          {
+            src: "/assets/woomph-splash.png",
+            alt: "Woomph splash screen with the app logo on a dark background.",
+          },
+          {
+            src: "/assets/woomph-choose.png",
+            alt: "Choose how to get started: exchange a tank or buy a new tank.",
+          },
+          {
+            src: "/assets/woomph-plans.png",
+            alt: "Pay-as-you-go versus subscription plans for propane delivery.",
+          },
+          {
+            src: "/assets/woomph-cart.png",
+            alt: "Cart screen with a 20-pound tank, extra-tank upsell, and checkout total.",
+          },
+          {
+            src: "/assets/woomph-pickup.png",
+            alt: "Leave for pick-up screen prompting the user to photograph the tank location.",
+          },
+          {
+            src: "/assets/woomph-payment.png",
+            alt: "Payment screen with credit card, Apple Pay, and PayPal options.",
+          },
+        ],
+      },
+      {
+        kind: "gallery",
+        title: "Account",
+        gridClass: "mt-6 mx-auto grid max-w-xl grid-cols-2 gap-4",
+        tileClass:
+          "relative mx-auto aspect-[1242/2688] w-full max-w-[min(100%,280px)] overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        imageSizes: "(max-width: 640px) 50vw, 25vw",
+        images: [
+          {
+            src: "/assets/woomph-create-account.png",
+            alt: "Create account screen with name, email, password, and address fields.",
+          },
+          {
+            src: "/assets/woomph-account.png",
+            alt: "Signed-in account screen with profile details and saved payment methods.",
+          },
+        ],
+      },
+      {
+        kind: "gallery",
+        title: "Marketing site",
+        description:
+          "The companion website that introduces the service and points people to the app.",
+        gridClass: "mt-6 grid grid-cols-1 gap-3",
+        tileClass:
+          "relative aspect-[16/9] w-full overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        imageSizes: "(max-width: 1024px) 100vw, min(80vw, 1152px)",
+        images: [
+          {
+            src: "/assets/woomph-website.png",
+            alt: "Woomph marketing site hero with a grill, propane tank, and Exchange Your Tank headline.",
+          },
         ],
       },
     ],

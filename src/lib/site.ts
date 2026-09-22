@@ -1,18 +1,18 @@
 export const SITE = {
   name: "DVYDesign",
-  tagline: "UX/UI • Products • Branding",
+  tagline: "Product Designer · 3D Visualization · Brand Systems",
   description:
-    "Chris Davey — UX/UI, Products & Branding. Connected hardware, SaaS, and medical products—from prototyping through production.",
+    "Chris Davey — Product, industrial, and visual designer with two decades shipping connected hardware, software, and brand systems—from concept through production.",
   person: {
     name: "Chris Davey",
-    title: "UX/UI, Products & Branding Designer",
+    title: "Product Designer · 3D Visualization · Brand Systems",
     location: "Sacramento, CA",
+    phone: "(916) 205-6733",
   },
   links: {
     linkedin: "https://www.linkedin.com/in/daveydesign/",
-    resume:
-      "https://docs.google.com/document/d/1oTzRU-KimOtLxTdqdhoyvHgPIzmrCdKZYw5gby7DwrI/edit?usp=sharing",
-    email: "hello@dvydesign.com",
+    resume: "/assets/Chris_Davey_Resume.pdf?v=20260922b",
+    email: "cdavey1533@gmail.com",
   },
 } as const;
 

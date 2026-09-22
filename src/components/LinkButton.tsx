@@ -14,7 +14,10 @@ export function LinkButton({ variant = "secondary", className, ...props }: Props
       : "border border-white/15 bg-white/5 text-fg hover:bg-white/8";
 
   const href = props.href?.toString() ?? "";
-  const isExternal = href.startsWith("http://") || href.startsWith("https://");
+  const path = href.split("?")[0];
+  const isFile = /\.(pdf|zip|png|jpe?g|svg|webp)$/i.test(path);
+  const isExternal =
+    href.startsWith("http://") || href.startsWith("https://") || isFile;
   const classes = [base, styles, className].filter(Boolean).join(" ");
 
   if (isExternal) {

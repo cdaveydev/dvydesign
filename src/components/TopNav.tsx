@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { LinkButton } from "@/components/LinkButton";
+import { LinkedInLink } from "@/components/LinkedInLink";
 import { usePathname } from "next/navigation";
 
 const nav = [
@@ -61,14 +62,7 @@ export function TopNav() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              className="hidden rounded-full border border-white/15 bg-white/5 px-3 py-2 text-sm text-fg/90 hover:bg-white/8 md:inline-flex"
-              href={SITE.links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
+            <LinkedInLink />
             <LinkButton href={SITE.links.resume} variant="primary">
               Resume
             </LinkButton>

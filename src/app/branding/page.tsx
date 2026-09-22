@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { GalleryLightboxTile } from "@/components/GalleryLightboxTile";
 
 export const metadata: Metadata = {
@@ -11,12 +12,7 @@ export default function BrandingPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="dvy-pill">Identity</span>
-          <span className="dvy-pill">Typography</span>
-          <span className="dvy-pill">Graphic systems</span>
-          <span className="dvy-pill">Art direction</span>
-        </div>
+        <Breadcrumbs current="Branding" />
         <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
           Branding that helps businesses stand out and scale.
         </h1>
@@ -42,61 +38,93 @@ export default function BrandingPage() {
       </section>
 
       <section className="dvy-card p-6 sm:p-8">
+        <h2 className="text-xl font-semibold text-fg">Case studies</h2>
+        <p className="mt-3 text-sm text-muted sm:text-base">
+          Brand systems and packaging stories—identity, applications, and the
+          work that shipped.
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <CaseStudyCard
+            title="Fort Rock Brewing"
+            body="Brand identity, packaging art, and shelf-ready visuals for a Pacific Northwest craft brewery."
+            imageSrc="/assets/Fort_Rock_Cans_on_blue.png"
+            imageAlt="Fort Rock Brewing cans on blue"
+            href="/case-studies/fort-rock-brewing"
+          />
+          <CaseStudyCard
+            title="Shannon Family Automotive"
+            body="Identity and environmental graphics for a family automotive shop—signage that reads at speed and after dark."
+            imageSrc="/assets/shannon_automotive.png"
+            imageAlt="Shannon Family Automotive illuminated sign"
+            imageClassName="object-cover object-left"
+            action="Coming Soon"
+          />
+        </div>
+      </section>
+
+      <section className="dvy-card p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-fg">Selected work</h2>
         <p className="mt-3 text-sm text-muted sm:text-base">
-          Add brand project tiles here—each can open a detail page later if you
-          want deeper storytelling.
+          Identity, packaging, and in-context brand applications across
+          consumer, beverage, and connected-product work.
         </p>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
-          <GalleryLightboxTile
-            src="/assets/shannon_automotive.png"
-            alt="Shannon Automotive brand work"
-            sizes="(max-width: 640px) 100vw, 50vw"
-            imageClassName="object-cover"
-            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
-          />
-          <Link
-            href="/case-studies/fort-rock-brewing"
-            className="group relative block aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03] transition hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            <Image
-              src="/assets/Fort_Rock_Cans_on_blue.png"
-              alt="Fort Rock Brewing cans on blue"
-              fill
-              sizes="(max-width: 640px) 100vw, 50vw"
-              className="object-cover object-center transition duration-300 group-hover:scale-[1.03]"
-            />
-            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-3 text-sm font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">
-              Fort Rock Brewing — case study
-            </span>
-          </Link>
-          <GalleryLightboxTile
-            src="/assets/kalabbr.png"
-            alt="Kalabbr brand work"
-            sizes="(max-width: 640px) 100vw, 50vw"
-            imageClassName="object-cover"
-            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
-          />
-          <GalleryLightboxTile
-            src="/assets/bekonix.png"
-            alt="Bekonix brand work"
-            sizes="(max-width: 640px) 100vw, 50vw"
+        <div className="mt-6 grid grid-flow-dense grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+          <BrandSampleImage
+            src="/assets/brand-bekonix.png"
+            alt="Bekonix brand identity"
             imageClassName="object-cover object-center"
-            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+            title="Bekonix"
+            span="feature"
           />
-          <GalleryLightboxTile
-            src="/assets/NexePackaging.png"
-            alt="NEXE packaging brand work"
-            sizes="(max-width: 640px) 100vw, 50vw"
-            imageClassName="object-cover"
-            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+          <BrandSampleImage
+            src="/assets/brand-birdseye.png"
+            alt="Birdseye Consulting logo"
+            imageClassName="object-cover object-center"
+            title="Birdseye Consulting"
           />
-          <GalleryLightboxTile
-            src="/assets/EsplanadeWine.png"
-            alt="Esplanade Wine brand work"
-            sizes="(max-width: 640px) 100vw, 50vw"
-            imageClassName="object-cover"
-            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]"
+          <BrandSampleImage
+            src="/assets/brand-nexe.png"
+            alt="Nexe wordmark"
+            imageClassName="object-cover object-center"
+            title="Nexe"
+          />
+          <BrandSampleImage
+            src="/assets/brand-11th-and-l.png"
+            alt="Eleventh and L Properties logo"
+            imageClassName="object-cover object-center"
+            title="Eleventh & L"
+            span="featureEnd"
+          />
+          <BrandSampleImage
+            src="/assets/brand-preformd.png"
+            alt="preform'd logo"
+            imageClassName="object-cover object-center"
+            title="preform'd"
+          />
+          <BrandSampleImage
+            src="/assets/brand-black-clover.png"
+            alt="Black Clover Cycling logo"
+            imageClassName="object-cover object-center"
+            title="Black Clover Cycling"
+          />
+          <BrandSampleImage
+            src="/assets/brand-bad-example.png"
+            alt="Bad Example Cantina logo"
+            imageClassName="object-cover object-center"
+            title="Bad Example Cantina"
+            span="feature"
+          />
+          <BrandSampleImage
+            src="/assets/brand-kalabbr.png"
+            alt="Kalabbr wordmark"
+            imageClassName="object-cover object-center"
+            title="Kalabbr"
+          />
+          <BrandSampleImage
+            src="/assets/brand-township.png"
+            alt="12 Red Blendend Napa Valley mark"
+            imageClassName="object-cover object-center"
+            title="12 Red Blendend"
           />
         </div>
       </section>
@@ -119,6 +147,58 @@ function Feature({ title, body }: { title: string; body: string }) {
       <div className="text-base font-semibold text-fg">{title}</div>
       <div className="mt-2 text-sm leading-relaxed text-muted">{body}</div>
     </div>
+  );
+}
+
+const mosaicSpan = {
+  feature: "col-span-2 row-span-2 aspect-square",
+  featureEnd: "col-span-2 row-span-2 aspect-square sm:col-start-2",
+  wide: "col-span-2 aspect-[2/1]",
+  default: "aspect-square",
+} as const;
+
+function BrandSampleImage({
+  src,
+  alt,
+  imageClassName = "object-cover",
+  title,
+  span = "default",
+}: {
+  src: string;
+  alt: string;
+  imageClassName?: string;
+  title?: string;
+  span?: keyof typeof mosaicSpan;
+}) {
+  const sizes =
+    span === "feature" || span === "featureEnd"
+      ? "(max-width: 640px) 100vw, 67vw"
+      : span === "wide"
+        ? "(max-width: 640px) 100vw, 67vw"
+        : "(max-width: 640px) 50vw, 33vw";
+
+  return (
+    <GalleryLightboxTile
+      src={src}
+      alt={alt}
+      sizes={sizes}
+      imageClassName={imageClassName}
+      tileClassName={[
+        "relative w-full overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        mosaicSpan[span],
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      overlay={
+        title ? (
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent px-3 pb-3 pt-12">
+            <div className="text-sm font-semibold tracking-tight text-fg">
+              {title}
+            </div>
+          </div>
+        ) : null
+      }
+    />
   );
 }
 

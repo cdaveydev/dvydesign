@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GalleryLightboxTile } from "@/components/GalleryLightboxTile";
 
 export const metadata: Metadata = {
@@ -10,12 +11,7 @@ export default function IndustrialPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="dvy-pill">Products</span>
-          <span className="dvy-pill">Prototyping</span>
-          <span className="dvy-pill">CMF</span>
-          <span className="dvy-pill">DFM</span>
-        </div>
+        <Breadcrumbs current="Products" />
         <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
           Industrial Design that turns ideas into manufacturable products
         </h1>
@@ -43,15 +39,64 @@ export default function IndustrialPage() {
       <section className="dvy-card p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-fg">Work samples</h2>
         <p className="mt-3 text-sm text-muted sm:text-base">
-          Add project tiles here (renders, sketches, prototypes). I can plug in
-          your real projects as soon as you share images + titles.
+          Product renders, animations, and in-context shots from connected
+          hardware and consumer devices.
         </p>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
+        <div className="mt-6 grid auto-rows-[minmax(11rem,18vw)] grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          <WorkSampleImage
+            src="/assets/TreaterHero.jpg"
+            videoSrc="/assets/Treater.mp4"
+            alt="Treater automatic pet feeder product animation"
+            imageClassName="object-cover object-center"
+            title="Treater"
+            span="feature"
+          />
+          <WorkSampleImage
+            src="/assets/TreaterHero.jpg"
+            alt="Treater automatic pet feeder product render"
+            imageClassName="object-cover object-center"
+            title="Treater"
+          />
+          <WorkSampleImage
+            src="/assets/TreaterWithDog.jpg"
+            alt="Treater automatic pet feeder with a dog and dispensed kibble"
+            imageClassName="object-cover object-center"
+            title="Treater"
+          />
+          <WorkSampleImage
+            src="/assets/iv-medtag-hero.jpg"
+            alt="IV Drip Monitor infusion device on a hospital pole"
+            imageClassName="object-cover object-center"
+            title="IV Drip Monitor"
+            span="wide"
+          />
+          <WorkSampleImage
+            src="/assets/NexePackaging.png"
+            videoSrc="/assets/NexeRotate.mp4"
+            alt="Nexe product rotation animation"
+            imageClassName="object-cover object-center"
+            title="Nexe"
+            span="wide"
+          />
+          <WorkSampleImage
+            src="/assets/NexePackaging.png"
+            videoSrc="/assets/NexeDesktopnimation.mp4"
+            alt="Nexe desktop product animation"
+            imageClassName="object-cover object-center"
+            title="Nexe"
+          />
+          <WorkSampleImage
+            src="/assets/NexePackaging.png"
+            alt="Nexe Launch Kit packaging"
+            imageClassName="object-cover object-center"
+            title="Nexe"
+          />
           <WorkSampleImage
             src="/assets/MedTechDeviceOnNeckl.png"
             alt="Med tech neck-worn device industrial design"
             imageClassName="object-cover object-center scale-125"
             title="Med-Tech Monitor"
+            span="wide"
           />
           <WorkSampleImage
             src="/assets/victorybeam.png"
@@ -67,22 +112,30 @@ export default function IndustrialPage() {
             title="Muscle Analizer"
           />
           <WorkSampleImage
-            src="/assets/Dropbox_Camera.png"
-            alt="Dropbox camera product industrial design"
-            imageClassName="object-cover object-[62%_90%]"
-            tileClassName="relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-black"
-            title="Dropbox Camera"
+            src="/assets/Dropbox AI Camera.jpg"
+            alt="Dropbox AI Camera exploded product view"
+            imageClassName="object-cover object-center"
+            title="Dropbox AI Camera"
+            span="feature"
           />
           <WorkSampleImage
             src="/assets/Circle_Light_room.jpg"
             alt="Circle light room industrial design"
+            imageClassName="object-cover object-top"
             title="Circle Light"
+            span="wide"
+          />
+          <WorkSampleImage
+            src="/assets/RFID Inventory Tracker.jpg"
+            alt="RFID inventory tracker on a convenience-store cooler shelf"
+            imageClassName="object-cover object-center"
+            title="RFID Inventory Tracker"
           />
           <WorkSampleImage
             src="/assets/ChamberDrip2.png"
             alt="Chamber drip device industrial design"
             imageClassName="object-cover object-center"
-            title="IV Drip Calculator"
+            title="IV Drip Monitor"
           />
         </div>
       </section>
@@ -108,30 +161,48 @@ function Feature({ title, body }: { title: string; body: string }) {
   );
 }
 
+const mosaicSpan = {
+  feature: "col-span-2 row-span-2",
+  wide: "col-span-2",
+  default: "",
+} as const;
+
 function WorkSampleImage({
   src,
   alt,
   imageClassName = "object-cover",
-  tileClassName = "relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]",
   title,
   videoSrc,
   posterSrc,
+  span = "default",
 }: {
   src: string;
   alt: string;
   imageClassName?: string;
-  tileClassName?: string;
   title?: string;
   videoSrc?: string;
   posterSrc?: string;
+  span?: keyof typeof mosaicSpan;
 }) {
+  const sizes =
+    span === "feature"
+      ? "(max-width: 640px) 100vw, 50vw"
+      : span === "wide"
+        ? "(max-width: 640px) 100vw, 50vw"
+        : "(max-width: 640px) 50vw, 25vw";
+
   return (
     <GalleryLightboxTile
       src={src}
       alt={alt}
-      sizes="(max-width: 640px) 100vw, 50vw"
+      sizes={sizes}
       imageClassName={imageClassName}
-      tileClassName={tileClassName}
+      tileClassName={[
+        "relative h-full min-h-[11rem] overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        mosaicSpan[span],
+      ]
+        .filter(Boolean)
+        .join(" ")}
       videoSrc={videoSrc}
       posterSrc={posterSrc}
       overlay={

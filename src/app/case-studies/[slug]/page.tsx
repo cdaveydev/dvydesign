@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GalleryLightboxTile } from "@/components/GalleryLightboxTile";
 import {
   CASE_STUDIES,
@@ -43,12 +44,7 @@ export default function CaseStudyPage({ params }: Props) {
   return (
     <div className="space-y-10">
       <header className="space-y-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="dvy-pill">Case study</span>
-          <span className="dvy-pill">
-            {cs.discipline ?? "UX/UI"}
-          </span>
-        </div>
+        <Breadcrumbs current={cs.title} />
         <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
           {cs.title}
         </h1>
@@ -147,7 +143,7 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
           style={{ maxWidth: width, height: frameHeight }}
         >
           <iframe
-            title={`${section.title} — Figma prototype`}
+            title={`${section.title} — interactive prototype`}
             src={section.embedUrl}
             className="absolute left-0 block w-full border-0 bg-[rgb(var(--bg))]"
             style={{

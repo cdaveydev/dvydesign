@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CaseStudyCard } from "@/components/CaseStudyCard";
 
 export const metadata: Metadata = {
   title: "UX/UI",
@@ -10,12 +11,7 @@ export default function ProductPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="dvy-pill">UX</span>
-          <span className="dvy-pill">UI</span>
-          <span className="dvy-pill">Design systems</span>
-          <span className="dvy-pill">Prototyping</span>
-        </div>
+        <Breadcrumbs current="UX/UI" />
         <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
           UX/UI that makes complex products intuitive.
         </h1>
@@ -46,7 +42,7 @@ export default function ProductPage() {
           Drop in your key UX/UI projects here (problem → process → outcome).
           This layout is built to support metrics, screenshots, and story.
         </p>
-        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <CaseStudyCard
             title="HiDO Health"
             body="Mobile apps and web-based dashboards for cognitive care patients."
@@ -60,6 +56,13 @@ export default function ProductPage() {
             imageSrc="/assets/BekonixMonitor.jpg"
             imageAlt="Bekonix monitor UX/UI"
             href="/case-studies/bekonix"
+          />
+          <CaseStudyCard
+            title="Woomph"
+            body="Mobile app for ordering replacement or new propane tanks, delivered and picked up at the user’s location."
+            imageSrc="/assets/woomph-devices.png"
+            imageAlt="Woomph propane exchange app on overlapping iPhones"
+            href="/case-studies/woomph"
           />
         </div>
       </section>
@@ -82,49 +85,6 @@ function Feature({ title, body }: { title: string; body: string }) {
       <div className="text-base font-semibold text-fg">{title}</div>
       <div className="mt-2 text-sm leading-relaxed text-muted">{body}</div>
     </div>
-  );
-}
-
-function CaseStudyCard({
-  title,
-  body,
-  imageSrc,
-  imageAlt,
-  href,
-}: {
-  title: string;
-  body: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  href?: string;
-}) {
-  const card = (
-    <div className="rounded-dvy border border-white/10 bg-white/[0.03] p-6">
-      <div className="text-base font-semibold text-fg">{title}</div>
-      <div className="mt-2 text-sm leading-relaxed text-muted">{body}</div>
-      <div className="relative mt-4 aspect-[16/10] overflow-hidden rounded-dvy border border-white/10 bg-white/[0.03]">
-        {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={imageAlt ?? ""}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-        ) : null}
-      </div>
-    </div>
-  );
-
-  if (!href) return card;
-
-  return (
-    <Link
-      href={href}
-      className="block rounded-dvy transition hover:-translate-y-0.5 hover:bg-white/[0.02]"
-    >
-      {card}
-    </Link>
   );
 }
 

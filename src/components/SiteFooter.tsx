@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { LinkedInLink } from "@/components/LinkedInLink";
 
 export function SiteFooter() {
   return (
@@ -24,14 +25,7 @@ export function SiteFooter() {
             <Link href="/about" className="text-fg/85 hover:text-fg">
               About
             </Link>
-            <a
-              href={SITE.links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="text-fg/85 hover:text-fg"
-            >
-              LinkedIn
-            </a>
+            <LinkedInLink variant="plain" className="self-center" />
             <a
               href={SITE.links.resume}
               target="_blank"
