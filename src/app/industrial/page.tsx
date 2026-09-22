@@ -112,6 +112,13 @@ export default function IndustrialPage() {
             title="Muscle Analizer"
           />
           <WorkSampleImage
+            src="/assets/Military Field Analyzer.jpg"
+            alt="Military Field Analyzer rugged enclosure on concrete"
+            imageClassName="object-cover object-center"
+            title="Military Field Analyzer"
+            span="feature"
+          />
+          <WorkSampleImage
             src="/assets/Dropbox AI Camera.jpg"
             alt="Dropbox AI Camera exploded product view"
             imageClassName="object-cover object-center"

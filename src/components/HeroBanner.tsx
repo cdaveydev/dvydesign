@@ -15,6 +15,11 @@ const SLIDES = [
     objectClass: "object-cover object-center",
   },
   {
+    src: "/assets/Military Field Analyzer.jpg",
+    alt: "Military Field Analyzer rugged enclosure on concrete",
+    objectClass: "object-cover object-center",
+  },
+  {
     src: "/assets/hido_health.png",
     alt: "HiDO Health patient app and clinician dashboard",
     objectClass: "object-cover object-top",

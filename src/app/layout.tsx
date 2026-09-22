@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { TopNav } from "@/components/TopNav";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -37,6 +38,7 @@ export default function RootLayout({
         <TopNav />
         <main className="dvy-container py-10 sm:py-14">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
