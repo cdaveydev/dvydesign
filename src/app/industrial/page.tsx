@@ -113,14 +113,14 @@ export default function IndustrialPage() {
           />
           <WorkSampleImage
             src="/assets/Military Field Analyzer.jpg"
-            alt="Military Field Analyzer rugged enclosure on concrete"
+            alt="Military Field Analyzer weathered enclosure with a camouflage helmet"
             imageClassName="object-cover object-center"
             title="Military Field Analyzer"
             span="feature"
           />
           <WorkSampleImage
-            src="/assets/Dropbox AI Camera.jpg"
-            alt="Dropbox AI Camera exploded product view"
+            src="/assets/Dropbox AI Camera.jpg?v=20260922c"
+            alt="Dropbox AI Camera exploded product view on a black background"
             imageClassName="object-cover object-center"
             title="Dropbox AI Camera"
             span="feature"
@@ -143,6 +143,21 @@ export default function IndustrialPage() {
             alt="Chamber drip device industrial design"
             imageClassName="object-cover object-center"
             title="IV Drip Monitor"
+          />
+          <WorkSampleImage
+            src="/assets/Purell Hand Sanitizer.jpg"
+            alt="Purell hand sanitizer dispenser product render"
+            imageClassName="object-cover object-center"
+            title="Purell Hand Sanitizer"
+            span="feature"
+          />
+          <WorkSampleImage
+            src="/assets/Purell Hand Sanitizer.jpg"
+            videoSrc="/assets/Hand Sanitizer Video.mp4"
+            alt="Purell hand sanitizer dispenser product animation"
+            imageClassName="object-cover object-center"
+            title="Hand Sanitizer Video"
+            span="feature"
           />
         </div>
       </section>

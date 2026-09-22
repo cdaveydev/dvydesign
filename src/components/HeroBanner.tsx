@@ -16,8 +16,8 @@ const SLIDES = [
   },
   {
     src: "/assets/Military Field Analyzer.jpg",
-    alt: "Military Field Analyzer rugged enclosure on concrete",
-    objectClass: "object-cover object-center",
+    alt: "Military Field Analyzer weathered enclosure with a camouflage helmet",
+    objectClass: "object-cover object-[center_32%]",
   },
   {
     src: "/assets/hido_health.png",
