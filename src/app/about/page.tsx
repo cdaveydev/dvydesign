@@ -15,8 +15,6 @@ export const metadata: Metadata = {
   title: "About",
 };
 
-const phoneHref = `tel:+1${PROFILE.phone.replace(/\D/g, "")}`;
-
 export default function AboutPage() {
   return (
     <div className="space-y-10">
@@ -37,12 +35,6 @@ export default function AboutPage() {
               {SITE.person.location}
             </div>
             <div>
-              <span className="text-fg/90">Phone:</span>{" "}
-              <a href={phoneHref} className="hover:text-fg">
-                {PROFILE.phone}
-              </a>
-            </div>
-            <div>
               <span className="text-fg/90">Focus:</span>{" "}
               {PROFILE.resumeTagline}
             </div>
@@ -56,13 +48,6 @@ export default function AboutPage() {
           </p>
 
           <div className="mt-6 space-y-3">
-            <a
-              className="flex items-center justify-between rounded-dvy border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-fg/90 hover:bg-white/[0.06] sm:text-base"
-              href={phoneHref}
-            >
-              <span>Phone</span>
-              <span className="text-muted">{PROFILE.phone}</span>
-            </a>
             <a
               className="flex items-center justify-between rounded-dvy border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-fg/90 hover:bg-white/[0.06] sm:text-base"
               href={`mailto:${SITE.links.email}`}
