@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent,
+} from "react";
 
 const SLIDES = [
   {
@@ -42,11 +48,17 @@ const SLIDES = [
 ] as const;
 
 const INTERVAL_MS = 5500;
+const SWIPE_THRESHOLD_PX = 40;
 
 export function HeroBanner() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const pointerStart = useRef<{
+    x: number;
+    y: number;
+    id: number;
+  } | null>(null);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -61,6 +73,44 @@ export function HeroBanner() {
     setIndex(((next % count) + count) % count);
   }, []);
 
+  const onPointerDown = useCallback((event: PointerEvent<HTMLElement>) => {
+    if ((event.target as HTMLElement).closest("[role='tablist']")) return;
+    pointerStart.current = {
+      x: event.clientX,
+      y: event.clientY,
+      id: event.pointerId,
+    };
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      // Synthetic or non-primary pointers can reject capture.
+    }
+    setPaused(true);
+  }, []);
+
+  const endPointer = useCallback(
+    (event: PointerEvent<HTMLElement>) => {
+      const start = pointerStart.current;
+      pointerStart.current = null;
+      try {
+        if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+          event.currentTarget.releasePointerCapture(event.pointerId);
+        }
+      } catch {
+        // Ignore capture release errors from synthetic pointers.
+      }
+      if (!start || start.id !== event.pointerId) return;
+
+      const dx = event.clientX - start.x;
+      const dy = event.clientY - start.y;
+      if (Math.abs(dx) < SWIPE_THRESHOLD_PX || Math.abs(dx) <= Math.abs(dy)) {
+        return;
+      }
+      goTo(index + (dx < 0 ? 1 : -1));
+    },
+    [goTo, index],
+  );
+
   useEffect(() => {
     if (paused || reduceMotion) return;
     const id = window.setInterval(
@@ -74,14 +124,25 @@ export function HeroBanner() {
     <section
       aria-roledescription="carousel"
       aria-label="Featured work"
-      className="relative h-[min(72vh,38rem)] min-h-[22rem] overflow-hidden bg-black"
+      className="relative h-[min(72vh,38rem)] min-h-[22rem] touch-pan-y overflow-hidden bg-black"
       onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseLeave={() => {
+        if (!pointerStart.current) setPaused(false);
+      }}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) {
           setPaused(false);
         }
+      }}
+      onPointerDown={onPointerDown}
+      onPointerUp={(event) => {
+        endPointer(event);
+        if (!event.currentTarget.matches(":hover")) setPaused(false);
+      }}
+      onPointerCancel={() => {
+        pointerStart.current = null;
+        setPaused(false);
       }}
     >
       {SLIDES.map((slide, i) => (

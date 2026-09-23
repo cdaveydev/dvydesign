@@ -130,7 +130,12 @@ export default function IndustrialPage() {
             alt="Circle light room industrial design"
             imageClassName="object-cover object-top"
             title="Circle Light"
-            span="wide"
+          />
+          <WorkSampleImage
+            src="/assets/Flame.jpg"
+            alt="Flame table lamp glowing on a dark wood table"
+            imageClassName="object-cover object-center"
+            title="Flame"
           />
           <WorkSampleImage
             src="/assets/RFID Inventory Tracker.jpg"

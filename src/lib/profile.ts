@@ -65,12 +65,17 @@ export const EXPERIENCE = [
 ] as const;
 
 export const TOOLKIT = [
+  "Cursor, Grok Imagine, ChatGPT, Claude",
   "SolidWorks, Autodesk Fusion 360, Blender, 3D printing, CNC, injection molding, metal fab.",
   "Illustrator, Photoshop, InDesign, Figma — web, print, decks, packaging, merch",
-  "Cursor, Webflow, HTML/CSS, Notion, Jira, Asana, Slack",
+  "Notion, Jira, Asana, Slack",
 ] as const;
 
 export const TOOLKIT_GROUPS = [
+  {
+    label: "AI",
+    items: "Cursor, Grok Imagine, ChatGPT, Claude",
+  },
   {
     label: "3D / CAD",
     items:
@@ -82,7 +87,7 @@ export const TOOLKIT_GROUPS = [
   },
   {
     label: "Workflow",
-    items: "Cursor, Webflow, HTML/CSS, Notion, Jira, Asana, Slack",
+    items: "Notion, Jira, Asana, Slack",
   },
 ] as const;
 
