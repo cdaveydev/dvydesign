@@ -36,6 +36,11 @@ const SLIDES = [
     objectClass: "object-cover object-top",
   },
   {
+    src: "/assets/Siri Speaker.jpg",
+    alt: "Siri Speaker on a wood desk",
+    objectClass: "object-cover object-center",
+  },
+  {
     src: "/assets/BekonixMonitor.jpg",
     alt: "Bekonix connected-product designer on a desktop display",
     objectClass: "object-cover object-center",

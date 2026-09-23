@@ -162,6 +162,33 @@ export default function IndustrialPage() {
             alt="Purell hand sanitizer dispenser product animation"
             imageClassName="object-cover object-center"
             title="Hand Sanitizer Video"
+            span="wide"
+          />
+          <WorkSampleImage
+            src="/assets/OBDII.jpg"
+            alt="Fleetwerks OBD-II diagnostic module on a car seat"
+            imageClassName="object-cover object-center"
+            title="OBD-II"
+          />
+          <WorkSampleImage
+            src="/assets/CNC Dust Guard.jpg"
+            alt="OpenBuilds CNC spindle with a clear dust guard on a wood board"
+            imageClassName="object-cover object-center"
+            title="CNC Dust Guard"
+          />
+          <WorkSampleImage
+            src="/assets/Siri Speaker.jpg"
+            alt="Siri Speaker on a wood desk"
+            imageClassName="object-cover object-center"
+            title="Siri Speaker"
+            span="feature"
+          />
+          <WorkSampleImage
+            src="/assets/Siri Speaker.jpg"
+            videoSrc="/assets/Siri Speaker.mp4"
+            alt="Siri Speaker product animation"
+            imageClassName="object-cover object-center"
+            title="Siri Speaker Video"
             span="feature"
           />
         </div>
