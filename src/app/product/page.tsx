@@ -24,8 +24,8 @@ export default function ProductPage() {
       <section className="dvy-card p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-fg">Case studies</h2>
         <p className="mt-3 text-sm text-muted sm:text-base">
-          Drop in your key UX/UI projects here (problem → process → outcome).
-          This layout is built to support metrics, screenshots, and story.
+          Product stories across medical, connected hardware, and consumer
+          apps—problem, process, and the work that shipped.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <CaseStudyCard
@@ -52,21 +52,6 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        <Feature
-          title="UX clarity"
-          body="User flows & information architecture; wireframes & interactive prototypes."
-        />
-        <Feature
-          title="UI craft"
-          body="Responsive web & application design—thoughtful layouts and interaction across breakpoints."
-        />
-        <Feature
-          title="System thinking"
-          body="UI design systems & components; design–engineering handoff."
-        />
-      </section>
-
       <div className="flex flex-wrap gap-3">
         <Link
           href="/industrial"
@@ -75,15 +60,6 @@ export default function ProductPage() {
           Next: Products →
         </Link>
       </div>
-    </div>
-  );
-}
-
-function Feature({ title, body }: { title: string; body: string }) {
-  return (
-    <div className="dvy-card p-6">
-      <div className="text-base font-semibold text-fg">{title}</div>
-      <div className="mt-2 text-sm leading-relaxed text-muted">{body}</div>
     </div>
   );
 }

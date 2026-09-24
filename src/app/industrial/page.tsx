@@ -21,15 +21,7 @@ export default function IndustrialPage() {
         </p>
       </header>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        <Feature
-          title="Form &amp; ergonomics"
-          body="Concept development, form exploration, and user-centered design—so ideas hold up in real use."
-        />
-        <Feature
-          title="Materials &amp; manufacturing"
-          body="Materials strategy, CMF, and supplier collaboration aligned with how things are actually built."
-        />
+      <section>
         <Feature
           title="CAD &amp; production"
           body="CAD, DFM, prototyping, and production-ready detail that moves cleanly into tooling."

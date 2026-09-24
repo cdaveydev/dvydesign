@@ -22,14 +22,10 @@ export default function BrandingPage() {
         </p>
       </header>
 
-      <section className="grid gap-4 md:grid-cols-3">
+      <section className="grid gap-4 md:grid-cols-2">
         <Feature
           title="Identity"
           body="Brand identity systems; logo design & visual language."
-        />
-        <Feature
-          title="System + guidelines"
-          body="Color, typography, and usage guidelines; messaging & brand positioning."
         />
         <Feature
           title="Assets"

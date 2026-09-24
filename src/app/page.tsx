@@ -49,20 +49,13 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2">
+      <section>
         <div className="dvy-card p-6 sm:p-8">
           <h2 className="text-xl font-semibold text-fg">Approach</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
             Clarity first. I reduce cognitive load, design for real constraints
             (engineering, manufacturing, timelines), and iterate quickly with
             high‑fidelity prototypes.
-          </p>
-        </div>
-        <div className="dvy-card p-6 sm:p-8">
-          <h2 className="text-xl font-semibold text-fg">Available for</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
-            End-to-end product design across hardware + software, UX/UI for
-            connected devices, and production-ready industrial design.
           </p>
         </div>
       </section>
