@@ -11,7 +11,7 @@ export const SITE = {
   },
   links: {
     linkedin: "https://www.linkedin.com/in/daveydesign/",
-    resume: "/assets/Chris_Davey_Resume.pdf?v=20260922b",
+    resume: "/assets/Chris_Davey_Resume.pdf?v=20260924",
     email: "cdavey1533@gmail.com",
   },
 } as const;

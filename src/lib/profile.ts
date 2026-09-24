@@ -66,8 +66,9 @@ export const EXPERIENCE = [
 
 export const TOOLKIT = [
   "Cursor, Grok Imagine, ChatGPT, Claude",
-  "SolidWorks, Autodesk Fusion 360, Blender, 3D printing, CNC, injection molding, metal fab.",
-  "Illustrator, Photoshop, InDesign, Figma — web, print, decks, packaging, merch",
+  "SolidWorks, Fusion 360, Blender, KeyShot, 3D printing, CNC, injection molding, metal fab.",
+  "Illustrator, Photoshop, InDesign, Figma — web, print, packaging, merch",
+  "PowerPoint, Google Slides, Canva — decks. Adobe Premiere, Apple Final Cut Pro.",
   "Notion, Jira, Asana, Slack",
 ] as const;
 
@@ -79,11 +80,16 @@ export const TOOLKIT_GROUPS = [
   {
     label: "3D / CAD",
     items:
-      "SolidWorks, Autodesk Fusion 360, Blender, 3D printing, CNC, injection molding, metal fab.",
+      "SolidWorks, Fusion 360, Blender, KeyShot, 3D printing, CNC, injection molding, metal fab.",
   },
   {
     label: "Visual / Brand",
-    items: "Illustrator, Photoshop, InDesign, Figma — web, print, decks, packaging, merch",
+    items: "Illustrator, Photoshop, InDesign, Figma — web, print, packaging, merch",
+  },
+  {
+    label: "Presentation / Video",
+    items:
+      "PowerPoint, Google Slides, Canva — decks. Adobe Premiere, Apple Final Cut Pro.",
   },
   {
     label: "Workflow",
