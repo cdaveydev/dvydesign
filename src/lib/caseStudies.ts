@@ -2,7 +2,8 @@ export type CaseStudySlug =
   | "hido-health"
   | "bekonix"
   | "woomph"
-  | "fort-rock-brewing";
+  | "fort-rock-brewing"
+  | "shannon-family-automotive";
 
 export type CaseStudySection =
   | { kind: "text"; title: string; body: string }
@@ -43,11 +44,22 @@ export type CaseStudySection =
       /** Passed to next/image `sizes` (default suits two-column grids). */
       imageSizes?: string;
       images: Array<{
-        src: string;
+        src?: string;
         alt: string;
         /** Tailwind object-* classes for cropping wide composites (e.g. object-left). */
         objectClass?: string;
+        /** Muted looping video in the tile; `src` is the poster. */
+        videoSrc?: string;
+        /** Empty slot for visuals that are not ready yet. */
+        placeholder?: boolean;
       }>;
+    }
+  | {
+      kind: "carousel";
+      title: string;
+      description?: string;
+      pdfHref?: string;
+      slides: Array<{ src: string; alt: string }>;
     };
 
 export type CaseStudy = {
@@ -287,6 +299,146 @@ export const CASE_STUDIES: Record<CaseStudySlug, CaseStudy> = {
           {
             src: "/assets/TapHandles.png",
             alt: "Fort Rock Brewing — tap handles",
+          },
+        ],
+      },
+    ],
+  },
+  "shannon-family-automotive": {
+    slug: "shannon-family-automotive",
+    title: "Shannon Family Automotive",
+    summary:
+      "Identity and environmental graphics for a family automotive shop—signage that reads at speed and after dark.",
+    heroImage: {
+      src: "/assets/Shannon Store Fron Singage.jpg",
+      alt: "Shannon Family Automotive storefront script signage at night",
+      width: 1920,
+      height: 1200,
+    },
+    overview: {
+      platforms: "Brand, environmental & merch",
+    },
+    discipline: "Branding",
+    backLink: { href: "/branding", label: "Back to Branding" },
+    sections: [
+      {
+        kind: "text",
+        title: "Overview",
+        body: "Shannon Family Automotive needed a mark and system that holds up on a shop facade, a bay door, and staff gear. The identity had to read from the street, stay clean in embroidery, and feel like a family-run shop rather than a generic service chain.",
+      },
+      {
+        kind: "bullets",
+        title: "Main Tasks",
+        items: [
+          "Develop the script lockup, gear mark, and type hierarchy for building and apparel.",
+          "Design environmental graphics for the facade, entry glass, and color-blocked bay door.",
+          "Extend the system across hats, jackets, shirts, totes, and drinkware.",
+          "Prepare production files for signage, embroidery, and print decoration.",
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "Accomplishments",
+        items: [
+          "Delivered a lockup that reads at distance in daylight and as illuminated signage after dark.",
+          "Unified building graphics and merch so the shop and staff wear the same identity.",
+          "Built repeatable art files for embroidery, vinyl, and print across multiple SKUs.",
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "Tools Used",
+        items: [
+          "Adobe Illustrator & Photoshop",
+          "Environmental graphic and signage production",
+          "Embroidery and apparel decoration files",
+        ],
+      },
+      {
+        kind: "carousel",
+        title: "Brand guidelines",
+        description:
+          "Logo, type, color, and application pages from the Shannon Family Automotive brand guide.",
+        pdfHref: "/assets/Shannon_Family_Automotive_Brand_Guidelines.pdf",
+        slides: [
+          {
+            src: "/assets/shannon-brand-guide/page-01.jpg",
+            alt: "Shannon Family Automotive brand guidelines cover with the official lockup",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-02.jpg",
+            alt: "How to use this guide — contents of the Shannon brand system",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-03.jpg",
+            alt: "The mark — lockup, wordmark, descriptor, and gear symbol rules",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-04.jpg",
+            alt: "Logo color — four approved finishes",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-05.jpg",
+            alt: "Type system — Cocktail Shaker script and Quicksand",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-06.jpg",
+            alt: "Color system — Navy, Steel, Graphite, Ink, and Amber",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-07.jpg",
+            alt: "Technical specifications — HEX, RGB, CMYK, and Pantone values",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-08.jpg",
+            alt: "Business cards corrected to the brand system",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-09.jpg",
+            alt: "Uniforms — hat, chest, and sleeve embroidery rules",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-10.jpg",
+            alt: "Corrections — previous vs approved brand applications",
+          },
+          {
+            src: "/assets/shannon-brand-guide/page-11.jpg",
+            alt: "Production notes for cards, shirts, and hats",
+          },
+        ],
+      },
+      {
+        kind: "gallery",
+        title: "Selected visuals",
+        description:
+          "Building applications, merch, and apparel.",
+        gridClass: "mt-6 grid gap-5 sm:grid-cols-2",
+        imageSizes: "(max-width: 640px) 100vw, 50vw",
+        images: [
+          {
+            src: "/assets/ShannonSHopFront.png",
+            alt: "Shannon Family Automotive shop front with facade lettering and branded bay door",
+          },
+          {
+            src: "/assets/Shannon_Hat@3x.png",
+            alt: "Navy and white trucker hat with embroidered Shannon Family Automotive mark",
+          },
+          {
+            src: "/assets/Work Jacket.jpg",
+            alt: "Tan work jacket with Shannon Family Automotive embroidery on the chest and back",
+          },
+          {
+            src: "/assets/Jacket and Insulated Cups.jpg",
+            alt: "Navy vest with matching insulated bottle and travel cup",
+          },
+          {
+            src: "/assets/Shirts_totes_Hats_cups.jpg",
+            alt: "Shannon merch set with hats, shirts, tote, mug, and bottle",
+          },
+          {
+            src: "/assets/Shirts_totes_Hats_cups.jpg",
+            videoSrc: "/assets/Shirt-video.mp4",
+            alt: "Shannon Family Automotive shirt animation",
           },
         ],
       },

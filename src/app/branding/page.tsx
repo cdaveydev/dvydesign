@@ -50,10 +50,10 @@ export default function BrandingPage() {
           <CaseStudyCard
             title="Shannon Family Automotive"
             body="Identity and environmental graphics for a family automotive shop—signage that reads at speed and after dark."
-            imageSrc="/assets/shannon_automotive.png"
-            imageAlt="Shannon Family Automotive illuminated sign"
-            imageClassName="object-cover object-left"
-            action="Coming Soon"
+            imageSrc="/assets/Shannon Store Fron Singage.jpg"
+            imageAlt="Shannon Family Automotive storefront script signage at night"
+            imageClassName="object-cover object-center"
+            href="/case-studies/shannon-family-automotive"
           />
         </div>
       </section>

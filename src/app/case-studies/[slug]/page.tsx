@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GalleryLightboxTile } from "@/components/GalleryLightboxTile";
+import { PageCarousel } from "@/components/PageCarousel";
 import {
   CASE_STUDIES,
   type CaseStudySection,
@@ -158,6 +159,24 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
     );
   }
 
+  if (section.kind === "carousel") {
+    return (
+      <div className="dvy-card overflow-hidden p-6 sm:p-8">
+        <h2 className="text-xl font-semibold text-fg">{section.title}</h2>
+        {section.description ? (
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+            {section.description}
+          </p>
+        ) : null}
+        <PageCarousel
+          label={section.title}
+          slides={section.slides}
+          pdfHref={section.pdfHref}
+        />
+      </div>
+    );
+  }
+
   if (section.kind === "web-prototype") {
     const aspectRatio = section.aspectRatio ?? "4/3";
 
@@ -196,6 +215,8 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
     );
   }
 
+  if (section.kind !== "gallery") return null;
+
   return (
     <div className="dvy-card overflow-hidden p-6 sm:p-8">
       <h2 className="text-xl font-semibold text-fg">{section.title}</h2>
@@ -212,19 +233,33 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
             : "mt-6 grid gap-3 sm:grid-cols-2")
         }
       >
-        {section.images.map((img, j) => (
-          <GalleryLightboxTile
-            key={`${img.src}-${j}`}
-            src={img.src}
-            alt={img.alt}
-            sizes={section.imageSizes ?? "(max-width: 640px) 100vw, 50vw"}
-            imageClassName={`object-cover ${img.objectClass ?? "object-center"}`}
-            tileClassName={
-              section.tileClass ??
-              "relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-black/20"
-            }
-          />
-        ))}
+        {section.images.map((img, j) =>
+          img.placeholder || !img.src ? (
+            <div
+              key={`placeholder-${img.alt}-${j}`}
+              className={
+                section.tileClass ??
+                "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-dvy border border-dashed border-white/15 bg-white/[0.03] px-4 text-center text-sm text-muted"
+              }
+              aria-label={img.alt}
+            >
+              Coming soon
+            </div>
+          ) : (
+            <GalleryLightboxTile
+              key={`${img.src}-${img.videoSrc ?? "still"}-${j}`}
+              src={img.src}
+              alt={img.alt}
+              videoSrc={img.videoSrc}
+              sizes={section.imageSizes ?? "(max-width: 640px) 100vw, 50vw"}
+              imageClassName={`object-cover ${img.objectClass ?? "object-center"}`}
+              tileClassName={
+                section.tileClass ??
+                "relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-black/20"
+              }
+            />
+          ),
+        )}
       </div>
     </div>
   );

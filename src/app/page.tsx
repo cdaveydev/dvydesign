@@ -23,8 +23,8 @@ const disciplines = [
     title: "Branding / Graphic",
     subtitle: "Identity, typography, story",
     href: "/branding",
-    imageSrc: "/assets/shannon-sign.png",
-    imageAlt: "Shannon Family Automotive illuminated sign",
+    imageSrc: "/assets/Shannon Store Fron Singage.jpg",
+    imageAlt: "Shannon Family Automotive storefront script signage at night",
     imageClass: "object-cover object-left",
   },
 ] as const;
