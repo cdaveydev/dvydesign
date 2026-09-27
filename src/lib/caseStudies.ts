@@ -489,6 +489,38 @@ export const CASE_STUDIES: Record<CaseStudySlug, CaseStudy> = {
           "Design handoff + collaboration (Slack, Jira)",
         ],
       },
+      {
+        kind: "web-prototype",
+        title: "Platform prototype",
+        description:
+          "Live Bekonix UI — browse projects, folders, and device connections.",
+        embedUrl: "https://bknx-05.vercel.app/",
+        aspectRatio: "4/3",
+      },
+      {
+        kind: "gallery",
+        title: "Platform screens",
+        description:
+          "Home library, a project workspace, and Bluetooth device discovery.",
+        gridClass: "mt-6 grid gap-5 sm:grid-cols-2",
+        tileClass:
+          "relative aspect-[16/9] w-full overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        imageSizes: "(max-width: 640px) 100vw, 50vw",
+        images: [
+          {
+            src: "/assets/bekonix-ui-home.png",
+            alt: "Bekonix UI home library with Recents, Favorites, and All project grids",
+          },
+          {
+            src: "/assets/bekonix-ui-devices.png",
+            alt: "Bekonix UI home with the Bluetooth devices panel scanning nearby hardware",
+          },
+          {
+            src: "/assets/bekonix-ui-project.png",
+            alt: "Bekonix UI Light Controller project with the component library open",
+          },
+        ],
+      },
     ],
   },
   woomph: {
