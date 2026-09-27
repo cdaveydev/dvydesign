@@ -149,7 +149,7 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
             className="absolute left-0 block w-full border-0 bg-[rgb(var(--bg))]"
             style={{
               top: frameOffsetY,
-              height,
+              height: frameOffsetY === 0 && frameHeight === height ? "100%" : height,
               colorScheme: "dark",
             }}
             allowFullScreen

@@ -36,6 +36,13 @@ export default function IndustrialPage() {
         </p>
         <div className="mt-6 grid auto-rows-[minmax(11rem,18vw)] grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
           <WorkSampleImage
+            src="/assets/Consumer Medical Device.jpg"
+            alt="White handheld consumer medical device with a circular display on a blue background"
+            imageClassName="object-cover object-center"
+            title="Consumer Medical Device"
+            span="feature"
+          />
+          <WorkSampleImage
             src="/assets/TreaterHero.jpg"
             videoSrc="/assets/Treater.mp4"
             alt="Treater automatic pet feeder product animation"
@@ -182,6 +189,27 @@ export default function IndustrialPage() {
             imageClassName="object-cover object-center"
             title="Siri Speaker Video"
             span="feature"
+          />
+          <WorkSampleImage
+            src="/assets/Laser Internals.jpg"
+            alt="Cylindrical laser module internals with PCB, fan, and orange cap"
+            imageClassName="object-cover object-center"
+            title="Laser Internals"
+            span="feature"
+          />
+          <WorkSampleImage
+            src="/assets/Lens Stack of Laser Module.jpg"
+            alt="Laser module lens stack on a black enclosure with board and optics"
+            imageClassName="object-cover object-center"
+            title="Laser Lens Stack"
+            span="wide"
+          />
+          <WorkSampleImage
+            src="/assets/LightBox LED Controller.jpg"
+            alt="LightBox LED controller with a blue base and LED strip on a dark surface"
+            imageClassName="object-cover object-center"
+            title="LightBox LED Controller"
+            span="wide"
           />
         </div>
       </section>

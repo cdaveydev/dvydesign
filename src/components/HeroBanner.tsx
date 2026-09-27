@@ -11,6 +11,11 @@ import {
 
 const SLIDES = [
   {
+    src: "/assets/Consumer Medical Device.jpg",
+    alt: "White handheld consumer medical device with a circular display on a blue background",
+    objectClass: "object-cover object-center",
+  },
+  {
     src: "/assets/iv-medtag-hero.jpg",
     alt: "IV MedTag infusion device on a hospital pole",
     objectClass: "object-cover object-center",

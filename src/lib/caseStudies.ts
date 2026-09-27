@@ -547,9 +547,8 @@ export const CASE_STUDIES: Record<CaseStudySlug, CaseStudy> = {
           "Tap through the Adobe XD prototype to walk the exchange, purchase, and payment flows.",
         embedUrl:
           "https://xd.adobe.com/embed/d8e2a87f-b1f8-46d5-5b38-a6b16a0f569e-aed3/?fullscreen",
-        width: 360,
+        width: 375,
         height: 812,
-        frameHeight: 640,
       },
       {
         kind: "gallery",
