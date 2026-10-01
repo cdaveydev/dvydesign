@@ -89,6 +89,14 @@ export default function IndustrialPage() {
           />
           <WorkSampleImage
             src="/assets/NexePackaging.png"
+            videoSrc="/assets/NEXE_Expanders_Pan_Zoom.mp4"
+            alt="Nexe expanders pan and zoom animation"
+            imageClassName="object-cover object-center"
+            title="Nexe"
+            span="wide"
+          />
+          <WorkSampleImage
+            src="/assets/NexePackaging.png"
             videoSrc="/assets/NexeDesktopnimation.mp4"
             alt="Nexe desktop product animation"
             imageClassName="object-cover object-center"
