@@ -22,6 +22,9 @@ export type GalleryLightboxTileProps = {
   videoSrc?: string;
   /** Optional poster overrides `src` for the video `poster` attribute */
   posterSrc?: string;
+  /** When set with `height`, render the full image at its intrinsic ratio (no crop). */
+  width?: number;
+  height?: number;
 };
 
 const defaultTileClass =
@@ -36,7 +39,10 @@ export function GalleryLightboxTile({
   overlay,
   videoSrc,
   posterSrc,
+  width,
+  height,
 }: GalleryLightboxTileProps) {
+  const natural = width != null && height != null && !videoSrc;
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -125,29 +131,43 @@ export function GalleryLightboxTile({
         aria-expanded={open}
         aria-label={videoSrc ? alt : undefined}
       >
-        <span className="absolute inset-0">
-          {videoSrc ? (
-            <video
-              src={videoSrc}
-              poster={posterSrc ?? src}
-              muted
-              playsInline
-              loop
-              autoPlay
-              className={`absolute inset-0 h-full w-full ${imageClassName}`}
-              aria-hidden
-            />
-          ) : (
+        {natural ? (
+          <>
             <Image
               src={src}
               alt={alt}
-              fill
+              width={width}
+              height={height}
               sizes={sizes}
               className={imageClassName}
             />
-          )}
-          {overlay}
-        </span>
+            {overlay}
+          </>
+        ) : (
+          <span className="absolute inset-0">
+            {videoSrc ? (
+              <video
+                src={videoSrc}
+                poster={posterSrc ?? src}
+                muted
+                playsInline
+                loop
+                autoPlay
+                className={`absolute inset-0 h-full w-full ${imageClassName}`}
+                aria-hidden
+              />
+            ) : (
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes={sizes}
+                className={imageClassName}
+              />
+            )}
+            {overlay}
+          </span>
+        )}
       </button>
       {mounted && modal ? createPortal(modal, document.body) : null}
     </>

@@ -46,6 +46,9 @@ export type CaseStudySection =
       images: Array<{
         src?: string;
         alt: string;
+        /** Intrinsic size — when set with height, the tile shows the full image (no crop). */
+        width?: number;
+        height?: number;
         /** Tailwind object-* classes for cropping wide composites (e.g. object-left). */
         objectClass?: string;
         /** Muted looping video in the tile; `src` is the poster. */
@@ -447,77 +450,175 @@ export const CASE_STUDIES: Record<CaseStudySlug, CaseStudy> = {
   bekonix: {
     slug: "bekonix",
     title: "Bekonix, Inc.",
-    summary: "SaaS platform for creating smart-connected products.",
+    summary:
+      "No-code platform for creating smart, connected products from concept to final design.",
     heroImage: {
-      src: "/assets/BekonixMonitor.jpg",
-      alt: "Bekonix monitor UX/UI",
+      src: "/assets/bekonix-hero.png",
+      alt: "Bekonix designer, mobile controller, and a circular connected light",
+      width: 1401,
+      height: 1586,
     },
     overview: {
-      platforms: "Web platform",
+      platforms: "Designer, mobile app, web, and community",
     },
     sections: [
       {
         kind: "text",
         title: "Overview",
-        body: "Bekonix is a SaaS platform for creating smart-connected products—from initial setup through monitoring and ongoing management. The experience needed to stay approachable for new users while scaling to dense device, fleet, and analytics workflows.",
+        body: "Bekonix is a hardware and software platform that lets non-programmers build intelligent products that interact with their environment. The work spanned the no-code designer, companion mobile app, marketing site, and community—plus the brand system around them.",
       },
       {
         kind: "bullets",
         title: "Main Tasks",
         items: [
-          "Lead UX/UI for core platform flows across onboarding, device management, and monitoring.",
-          "Define user flows, information architecture, and interaction patterns for multi-surface IoT data.",
+          "Oversee UI, website, community, and marketing, plus product prototypes for demos.",
+          "Design the no-code designer: drag-and-drop components, timeline effects, and device widgets.",
+          "Research and shape backend SaaS and CRM environments.",
           "Build high-fidelity prototypes and a component-oriented UI system for engineering alignment.",
-          "Produce annotated specs, edge-case notes, and design QA support through release.",
         ],
       },
       {
         kind: "bullets",
         title: "Accomplishments",
         items: [
-          "Shipped production-ready interfaces tuned for setup-to-operations workflows.",
-          "Reduced ambiguity for engineering through system-level thinking and reusable patterns.",
-          "Improved consistency across dashboards, configuration, and status-heavy views.",
+          "Wireframed and usability-tested the designer, mobile app, and community.",
+          "Shipped a design system, brand identity, and marketing site.",
+          "Designed SaaS onboarding, affiliate flows, and store-submission UI.",
         ],
       },
       {
         kind: "bullets",
         title: "Tools Used",
         items: [
-          "Figma",
-          "Sketch / UXPin (as needed)",
-          "Design handoff + collaboration (Slack, Jira)",
+          "Adobe XD, Figma, Sketch, UXPin",
+          "Illustrator, Photoshop",
+          "WordPress, Elementor, Outseta, Circle.so",
+          "Fusion 360, Cura",
         ],
       },
       {
-        kind: "web-prototype",
-        title: "Platform prototype",
-        description:
-          "Live Bekonix UI — browse projects, folders, and device connections.",
-        embedUrl: "https://bknx-05.vercel.app/",
-        aspectRatio: "4/3",
-      },
-      {
         kind: "gallery",
-        title: "Platform screens",
+        title: "Selected visuals",
         description:
-          "Home library, a project workspace, and Bluetooth device discovery.",
-        gridClass: "mt-6 grid gap-5 sm:grid-cols-2",
+          "Process, product, marketing, community, and brand from the original Bekonix case study.",
+        gridClass: "mt-6 grid grid-cols-1 gap-5",
         tileClass:
-          "relative aspect-[16/9] w-full overflow-hidden rounded-dvy border border-white/10 bg-black/20",
-        imageSizes: "(max-width: 640px) 100vw, 50vw",
+          "w-full overflow-hidden rounded-dvy border border-white/10 bg-black/20",
+        imageSizes: "100vw",
         images: [
           {
-            src: "/assets/bekonix-ui-home.png",
-            alt: "Bekonix UI home library with Recents, Favorites, and All project grids",
+            src: "/assets/bekonix-hero.png",
+            alt: "Bekonix hero with a circular light, designer canvas, and mobile controller",
+            width: 1920,
+            height: 2174,
           },
           {
-            src: "/assets/bekonix-ui-devices.png",
-            alt: "Bekonix UI home with the Bluetooth devices panel scanning nearby hardware",
+            src: "/assets/bekonix-website-mockups.png",
+            alt: "Bekonix marketing and product pages on floating displays",
+            width: 1920,
+            height: 1077,
           },
           {
-            src: "/assets/bekonix-ui-project.png",
-            alt: "Bekonix UI Light Controller project with the component library open",
+            src: "/assets/bekonix-overview.png",
+            alt: "Bekonix case study overview with tasks, accomplishments, and tools",
+            width: 1920,
+            height: 1184,
+          },
+          {
+            src: "/assets/bekonix-wireframe-library.png",
+            alt: "Low-fidelity wireframe of the Bekonix project library and mobile controller",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-wireframe-editor.png",
+            alt: "Low-fidelity wireframe of the Bekonix designer canvas, timeline, and properties",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-personas.png",
+            alt: "Bekonix user personas for makers and lighting designers",
+            width: 1920,
+            height: 771,
+          },
+          {
+            src: "/assets/bekonix-flows-onboarding.png",
+            alt: "Onboarding and project-creation flow diagrams for Bekonix",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-flows-mobile.png",
+            alt: "Mobile app and project-sharing flow diagrams for Bekonix",
+            width: 1920,
+            height: 770,
+          },
+          {
+            src: "/assets/bekonix-use-cases.png",
+            alt: "Bekonix use cases beside the designer on a desktop display",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-designer-components.png",
+            alt: "Bekonix Designer with drag-and-drop hardware components and a product model",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-timeline.png",
+            alt: "Bekonix Designer timeline for triggering effects and components",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-led-effects.png",
+            alt: "Bekonix Designer LED effects editor with a bicycle product preview",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-mobile-widgets.png",
+            alt: "Bekonix mobile app and project widget settings next to a phone",
+            width: 1920,
+            height: 1000,
+          },
+          {
+            src: "/assets/bekonix-mobile-app.png",
+            alt: "Bekonix mobile app on a white iPhone controlling a connected device",
+            width: 1920,
+            height: 1569,
+          },
+          {
+            src: "/assets/bekonix-marketing-site.png",
+            alt: "Bekonix marketing site hero with a connected hardware product",
+            width: 1920,
+            height: 1080,
+          },
+          {
+            src: "/assets/bekonix-website-pages.png",
+            alt: "Bekonix website pages for product, pricing, login, and feature comparison",
+            width: 1920,
+            height: 1080,
+          },
+          {
+            src: "/assets/bekonix-community.png",
+            alt: "Bekonix community showcases feed with members and resources",
+            width: 1920,
+            height: 1193,
+          },
+          {
+            src: "/assets/bekonix-brand-colors.png",
+            alt: "Bekonix brand color and typography guidelines",
+            width: 1920,
+            height: 1465,
+          },
+          {
+            src: "/assets/bekonix-logo-system.png",
+            alt: "Bekonix logo system with lockups, icons, and usage rules",
+            width: 1920,
+            height: 1080,
           },
         ],
       },

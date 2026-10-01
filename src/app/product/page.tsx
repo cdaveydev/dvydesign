@@ -37,9 +37,9 @@ export default function ProductPage() {
           />
           <CaseStudyCard
             title="Bekonix, Inc."
-            body="SaaS platform for creating smart-connected products."
-            imageSrc="/assets/BekonixMonitor.jpg"
-            imageAlt="Bekonix monitor UX/UI"
+            body="No-code platform for creating smart, connected products from concept to final design."
+            imageSrc="/assets/bekonix-hero.png"
+            imageAlt="Bekonix designer, mobile controller, and a circular connected light"
             href="/case-studies/bekonix"
           />
           <CaseStudyCard

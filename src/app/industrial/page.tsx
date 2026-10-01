@@ -43,6 +43,14 @@ export default function IndustrialPage() {
             span="feature"
           />
           <WorkSampleImage
+            src="/assets/Consumer Medical Device.jpg"
+            videoSrc="/assets/Consumer Medical Device.mp4"
+            alt="Consumer medical device product animation"
+            imageClassName="object-cover object-center"
+            title="Consumer Medical Device Video"
+            span="feature"
+          />
+          <WorkSampleImage
             src="/assets/TreaterHero.jpg"
             videoSrc="/assets/Treater.mp4"
             alt="Treater automatic pet feeder product animation"
@@ -55,12 +63,14 @@ export default function IndustrialPage() {
             alt="Treater automatic pet feeder product render"
             imageClassName="object-cover object-center"
             title="Treater"
+            span="wide"
           />
           <WorkSampleImage
             src="/assets/TreaterWithDog.jpg"
             alt="Treater automatic pet feeder with a dog and dispensed kibble"
             imageClassName="object-cover object-center"
             title="Treater"
+            span="wide"
           />
           <WorkSampleImage
             src="/assets/iv-medtag-hero.jpg"

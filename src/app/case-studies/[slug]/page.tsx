@@ -251,11 +251,19 @@ function CaseStudySectionBlock({ section }: { section: CaseStudySection }) {
               src={img.src}
               alt={img.alt}
               videoSrc={img.videoSrc}
+              width={img.width}
+              height={img.height}
               sizes={section.imageSizes ?? "(max-width: 640px) 100vw, 50vw"}
-              imageClassName={`object-cover ${img.objectClass ?? "object-center"}`}
+              imageClassName={
+                img.width && img.height && !img.videoSrc
+                  ? "h-auto w-full"
+                  : `object-cover ${img.objectClass ?? "object-center"}`
+              }
               tileClassName={
                 section.tileClass ??
-                "relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-black/20"
+                (img.width && img.height && !img.videoSrc
+                  ? "w-full overflow-hidden rounded-dvy border border-white/10 bg-black/20"
+                  : "relative aspect-[4/3] overflow-hidden rounded-dvy border border-white/10 bg-black/20")
               }
             />
           ),
