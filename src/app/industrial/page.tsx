@@ -44,7 +44,7 @@ export default function IndustrialPage() {
           />
           <WorkSampleImage
             src="/assets/Consumer Medical Device.jpg"
-            videoSrc="/assets/Consumer Medical Device.mp4"
+            videoSrc="/assets/Consumer Medical Device.mp4?v=20260930"
             alt="Consumer medical device product animation"
             imageClassName="object-cover object-center"
             title="Consumer Medical Device Video"
